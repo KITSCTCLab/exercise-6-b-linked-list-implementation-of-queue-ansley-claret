@@ -26,7 +26,7 @@ class Queue:
             return to_return       
 
   def status(self) -> None:
-     a_queue = Queue()
+     return Queue()
 
 
 
