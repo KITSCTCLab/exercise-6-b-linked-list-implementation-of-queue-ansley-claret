@@ -10,26 +10,28 @@ class Queue:
     self.last = None
 
   def enqueue(self, data) -> None:
-     if self.last is None:
-            self.head = Node(data)
-            self.last = self.head
-      else:
-            self.last.next = Node(data)
-            self.last = self.last.next
-
+     new = Node(data)
+    if self.head == None:
+      new.next = None
+      self.head = new
+      self.last = new
+    else:
+      self.last.next = new
+      new.next = None
+      self.last = new
   def dequeue(self) -> None:
-      if self.head is None:
-            return None
-       else:
-            to_return = self.head.data
-            self.head = self.head.next
-            return to_return       
+      if self.head == None:
+        pass
+      else:
+        self.head = self.head.next
+           
 
   def status(self) -> None:
-      trav = self.head
-      while(trav!=None):
-        print(trav)
-        trav=trav.next
+    trav = self.head
+    while trav != None:
+      print(trav.data, "=>", sep = "", end = "")
+      trav = trav.next
+    print("None")
 
 
 
